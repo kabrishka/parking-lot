@@ -1,7 +1,6 @@
 package parking
 
 import java.util.*
-import kotlin.collections.Collection
 
 class ParkingSpace {
     private var parkingSpace = mutableMapOf<Int, Car?>()
@@ -39,7 +38,7 @@ class ParkingSpace {
         if (!parkingSpace.containsValue(null)) return "Sorry, the parking lot is full."
 
         val (num, color) = request.slice(1..2)
-        var car = Car(num,color)
+        val car = Car(num,color)
 
         parkingSpace.forEach { (key, value) ->
             if (value == null) {
@@ -93,7 +92,7 @@ class ParkingSpace {
     private fun queryCommands(request: List<String>): String {
         if (parkingSpace.isEmpty()) return "Sorry, a parking lot has not been created."
 
-        var info = mutableListOf<String>()
+        val info = mutableListOf<String>()
 
         val (flag, searchValue) = request.slice(0..1)
 
